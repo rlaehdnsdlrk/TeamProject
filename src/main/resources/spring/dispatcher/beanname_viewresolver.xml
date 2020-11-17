@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<!-- View 이름을 객체로 연결 시주켜주기 객체 -->
+	<bean id="viewResolver2" class="org.springframework.web.servlet.view.BeanNameViewResolver">
+		<property name="order" value="0"></property><!-- value값은 컨트롤러이름을 누가 먼저 해석할거냐는 의미 -->
+	</bean>
+
+</beans>

@@ -1,0 +1,35 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	
+	<bean id="dataSource"
+		class="org.apache.commons.dbcp2.BasicDataSource"
+		destroy-method="close">
+		<!-- 
+		<property name="driverClassName" value="oracle.jdbc.OracleDriver"></property>
+		<property name="url" value="jdbc:oracle:thin:@localhost:1521:orcl"></property>
+		 -->
+	    <property name="driverClassName" value="net.sf.log4jdbc.DriverSpy"></property>
+		<property name="url" value="jdbc:log4jdbc:oracle:thin:@localhost:1521:orcl"></property>
+		<property name="username" value="user"></property>
+		<property name="password" value="kosa12345"></property>
+		<property name="maxTotal" value="1"></property>
+		<property name="initialSize" value="1"></property>
+		<property name="maxIdle" value="1"></property>
+	</bean>
+	
+	<!-- mybatis 기능 제공 -->
+	<!-- <bean id="sqlSessionFactory"
+		  class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="dataSource"></property>
+		<property name="configLocation" value="classpath:mybatis/mapper-config.xml"></property>
+		<property name="mapperLocations" value="classpath:mybatis/mapper/*.xml"></property>
+	</bean> -->
+	
+	<!-- 코드상에서 사용하기 위해 -->
+	<!-- <bean id="sqlSessionTemplate"
+		  class="org.mybatis.spring.SqlSessionTemplate">
+		  <constructor-arg ref="sqlSessionFactory"></constructor-arg>
+	</bean> -->
+	
+</beans>
